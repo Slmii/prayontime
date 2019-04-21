@@ -1,0 +1,5 @@
+node_modules
+src/server/api/config/prod.js
+assets/build
+assets/public/bundle.js
+assets/public/styles.css

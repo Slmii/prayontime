@@ -1,0 +1,346 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+body 
+{
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Nunito', Arial, sans-serif;
+    height: 100%; 
+    // background: linear-gradient(135deg, #929292, #FFFFFF) no-repeat center center fixed;
+    background: url(/images/masjid5.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #FFFFFF;
+
+    &:before
+    {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100vh;
+        background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2), rgba(255, 255, 255, 0.5));
+        z-index: -1;
+    }
+}
+
+hr
+{
+    height: 2px;
+    background-color: #FFFFFF;
+    border: none;
+}
+
+.navbar
+{
+    background: transparent;
+
+    li > a
+    {
+        color: #FFFFFF;
+    }
+    li > a:hover
+    {
+        font-weight: 600;
+    }
+}
+
+.loading-text
+{
+    font-weight: 600;
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+#mosque-icon
+{
+    font-size: 44px;
+}
+
+#current-prayer-info
+{
+    font-weight: 600;
+    font-size: 32px;
+    text-transform: uppercase;
+
+    #current-prayer-info__title
+    {
+        color: #046f4a;
+    }
+}
+
+#prayer-countdown
+{
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 5px 5px 5px #000000;
+    border-radius: 2px;
+    padding: 20px;
+
+    .prayer-countdown__time
+    {
+        font-size: 110px;
+    }
+    .prayer-countdown__name
+    {
+        text-transform: uppercase;
+        position: relative;
+        top: -10px;
+        font-size: 22px;
+    }
+    .row:nth-child(2)
+    {
+        border-top: 1px solid #FFFFFF;
+        padding-top: 40px;
+    }
+}
+// #prayer-countdown:hover
+// {
+//     box-shadow:
+//         0 0 15px 5px #fff,  /* inner white */
+//         0 0 30px 5px #81b7a4, /* middle magenta */
+//         0 0 45px 5px #046f4a; /* outer cyan */
+// }
+
+#open-prayer-times-table
+{
+    right: 30px;
+    position: absolute;
+    font-size: 10px;
+}
+#open-prayer-times-table:hover 
+{
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.prayer-today
+{
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 25px;
+}
+
+#city
+{
+    font-size: 28px;
+    // font-weight: 600;
+    // color: #FFFFFF;
+}
+#city:hover
+{
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#method-info
+{
+    font-size: 12px;
+
+    #method-info__text
+    {
+        color: #1d7d5c;
+        font-weight: 600;
+    }
+
+    #method-info__method
+    {
+        color: #81b7a4;
+    }
+}
+
+#prayer-times-table 
+{
+    width: 50vw;
+    height: 100vh;
+    background-color: #929292;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: transform 0.2s
+                cubic-bezier(1, 1, 1, 1);
+    overflow: scroll;
+    z-index: 2000;
+    border-left: 2px solid #000000;
+}
+#prayer-times-table.hide 
+{
+    transform: translate3d(50vw, 0, 0);
+}
+#prayer-times-table.show 
+{
+    transform: translate3d(0vw, 0, 0);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#prayer-form
+{
+    min-height: 200px;
+    padding: 20px;
+    background-color: #E5E5E5;
+    box-shadow: 5px 5px 5px #000000;
+    background-color: rgba(0, 0, 0, 0.6);
+    
+    .loading-text
+    {
+        color: #FFFFFF;
+    }
+}
+
+.footer
+{
+    .container
+    {
+        margin-top: 20px;
+        font-size: 10px;
+    }
+}
+
+.fixed-footer
+{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    .container
+    {
+        margin-bottom: 20px;
+        font-size: 10px;
+    }
+}
+
+.disabled
+{
+    cursor: not-allowed;
+}
+
+.btn-main
+{
+    background-color: #046f4a;
+    color: #fff;
+    border-color: #046f4a;
+}
+
+.btn-main:hover
+{
+    background-color: #036342;
+}
+
+.btn-main:focus
+{
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(129,183,164,.25);
+}
+
+
+
+.mb10 { margin-bottom: 10px; }
+.mb30 { margin-bottom: 30px; }
+.mb75 { margin-bottom: 75px; }
+
+.mt20 { margin-top: 20px; }
+.mt25 { margin-top: 25px; }
+.mt30 { margin-top: 30px; }
+.mt50 { margin-top: 50px; }
+.mt100 { margin-top: 100px; }
+
+.f-row 
+{
+    display: flex;
+    flex-wrap: nowrap;
+    max-width: 60%;
+    margin: auto;
+}
+.f-col 
+{
+    flex: 1 0 15%; 
+    align-items: center;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+@media (max-width: 480px) 
+{
+    #prayer-countdown
+    {
+        .prayer-countdown__time
+        {
+            font-size: 70px;
+        }
+        .prayer-countdown__name
+        {
+            font-size: 15px;
+        }
+    }
+
+    .prayer-today
+    {
+        font-size: 15px;
+    }
+
+    .f-row 
+    {
+        max-width: 100%;
+    }
+}
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) 
+{
+   
+}
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) 
+{
+
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) 
+{
+   
+}
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) 
+{
+
+}
+
+@media (min-width: 1365px) and (max-width: 1444px) 
+{
+
+}
+
+@media (min-width: 1445px) and (max-width: 1920px) 
+{
+    
+}
+
+@media (min-width: 1920px) and (max-width: 4000px) 
+{
+
+}
