@@ -7,7 +7,6 @@ import { connect }                    from 'react-redux';
 //     isMobile
 // } from "react-device-detect";
 
-import { fetchCountries }          from '../../actions/countries';
 import { fetchPrayerTimesDiyanet } from '../../actions/prayerTimes';
 
 import CountryForm      from '../Country/CountryForm';
@@ -21,12 +20,7 @@ function Home(props) {
     const [showForm, setShowForm] = useState(!localStorage.getItem('cityId') ? true : false);
 
     useEffect(() => {
-        if (!showForm) 
-        {
-            // COUNTRIES WILL BE FETCHED ONLY ONCE FROM THE API. AS LONG AS THE LOCALSTORAGE IS NOT REMOVED, IT WILL ALWAYS CALL THE COUNTRIES DATA FROM THE LOCALSTORAGE
-            props.fetchCountries();
-            props.fetchPrayerTimesDiyanet(localStorage.getItem('cityId'));
-        }
+        if (!showForm) props.fetchPrayerTimesDiyanet(localStorage.getItem('cityId'));
     }, [showForm]);
 
     const toggleMenu = () => setVisible(!visible);
@@ -82,5 +76,5 @@ const mapStateToProps = ({ prayerTimes }) => {
 };
 
 export default {
-    component: connect(mapStateToProps, { fetchPrayerTimesDiyanet, fetchCountries })(Home)
+    component: connect(mapStateToProps, { fetchPrayerTimesDiyanet })(Home)
 };

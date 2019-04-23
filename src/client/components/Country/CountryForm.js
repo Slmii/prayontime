@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect }                    from 'react-redux';
 
 import { fetchCities }    from '../../actions/cities';
+import { fetchCountries } from '../../actions/countries';
 import { fetchProvinces } from '../../actions/provinces';
 
 function CountryForm(props) {
@@ -10,6 +11,10 @@ function CountryForm(props) {
     const [cityNotEmpty, setCityNotEmpty]   = useState(false);
     const [cityId, setCityId]               = useState('');
     const [cityName, setCityName]           = useState('');
+
+    useEffect(() => {
+        props.fetchCountries();
+    }, []);
 
     const handleOnChangeCountry = e => {
         if (e.target.value !== '*')
@@ -107,27 +112,33 @@ function CountryForm(props) {
                     <div id="prayer-form">
                         <div id="prayer-form__country">
                         {
-                            <select onChange={handleOnChangeCountry} className="custom-select">
+                            props.isLoadingCountries
+                            ? <select className="custom-select">
+                                <option defaultChecked value="*">--- SELECT COUNTRY ---</option>
+                              </select>
+                            : <select onChange={handleOnChangeCountry} className="custom-select">
                                 <option defaultChecked value="*">--- SELECT COUNTRY ---</option>
                                 {renderCountries()}
-                            </select>
+                              </select>
                         }
                         </div>
                         {
-                            showProvinces && <div id="prayer-form__province" className="mt30">
-                                                <select onChange={handleOnChangeProvince} className="custom-select">
-                                                    <option defaultChecked value="*">--- SELECT COUNTRY/PROVINCE ---</option>
-                                                    {renderProvinces()}
-                                                </select>
-                                            </div>
+                            showProvinces && !props.isLoadingProvinces &&
+                            <div id="prayer-form__province" className="mt30">
+                                <select onChange={handleOnChangeProvince} className="custom-select">
+                                    <option defaultChecked value="*">--- SELECT COUNTRY/PROVINCE ---</option>
+                                    {renderProvinces()}
+                                </select>
+                            </div>
                         }
                         {
-                            showCities && <div id="prayer-form__city" className="mt30">
-                                                <select onChange={handleOnChangeCity} className="custom-select">
-                                                    <option defaultChecked value="*">--- SELECT CITY ---</option>
-                                                    {renderCities()}
-                                                </select>
-                                            </div>
+                            showCities && !props.isLoadingCities &&
+                            <div id="prayer-form__city" className="mt30">
+                                <select onChange={handleOnChangeCity} className="custom-select">
+                                    <option defaultChecked value="*">--- SELECT CITY ---</option>
+                                    {renderCities()}
+                                </select>
+                            </div>
                         }
                         <div className="buttons text-right mt30">
                             <button className="btn btn-danger rounded-0" type="button" onClick={props.openForm}>Back</button>&nbsp;
@@ -167,4 +178,4 @@ const mapStateToProps = ({ countries, provinces, cities }) => {
     };
 };
 
-export default connect(mapStateToProps, { fetchProvinces, fetchCities })(CountryForm)
+export default connect(mapStateToProps, { fetchProvinces, fetchCountries, fetchCities })(CountryForm)
