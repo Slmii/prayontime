@@ -271,6 +271,11 @@ hr
 */
 @media (max-width: 480px) 
 {
+    body 
+    {
+        height:100vh;
+    }
+
     #prayer-countdown
     {
         .prayer-countdown__time
@@ -300,7 +305,10 @@ hr
 */
 @media (min-width: 481px) and (max-width: 767px) 
 {
-   
+    body 
+    {
+        height:100vh;
+    }
 }
 
 /* 
